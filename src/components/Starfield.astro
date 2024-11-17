@@ -1,0 +1,49 @@
+---
+import "../styles/starfield.css";
+---
+<div id="universe"></div>
+
+<script>
+const starCount = 400;
+const maxTime = 30;
+
+function getViewportDimensions() {
+    return {
+        width: window.innerWidth,
+        height: window.innerHeight
+    };
+}
+
+function createStar(universe: Element, width: number, height: number) {
+    const ypos = Math.round(Math.random() * height);
+    const star = document.createElement("div");
+    const speed = 1000 * (Math.random() * maxTime + 1);
+
+    star.className = `star${3 - Math.floor(speed / 1000 / 8)}`;
+    star.style.backgroundColor = "white";
+    universe.appendChild(star);
+
+    star.animate(
+        [
+            { transform: `translate3d(${width}px, ${ypos}px, 0)` },
+            { transform: `translate3d(-${Math.random() * 256}px, ${ypos}px, 0)` }
+        ],
+        {
+            delay: Math.random() * -speed,
+            duration: speed,
+            iterations: Infinity
+        }
+    );
+}
+
+const universe = document.querySelector("#universe");
+const { width, height } = getViewportDimensions();
+
+if (!universe) {
+    throw new Error("Universe not found");
+}
+
+for (let i = 0; i < starCount; i++) {
+    createStar(universe, width, height);
+}
+</script>
