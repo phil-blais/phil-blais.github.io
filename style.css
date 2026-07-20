@@ -1,0 +1,22 @@
+:root {
+  --pico-font-family: "Figtree", system-ui, sans-serif;
+}
+
+main.container {
+  max-width: 640px;
+}
+
+hgroup {
+  text-align: center;
+}
+
+h1 {
+ --pico-font-size: 4rem;
+}
+
+#profile {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
