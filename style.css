@@ -2,21 +2,26 @@
   --pico-font-family: "Figtree", system-ui, sans-serif;
 }
 
+[data-tooltip]::before {
+  font-size: 0.75rem;
+}
+
 main.container {
-  max-width: 640px;
+  max-width: 38rem;
+  margin-top: 30vh;
 }
 
-hgroup {
-  text-align: center;
-}
-
-h1 {
- --pico-font-size: 4rem;
-}
-
-#profile {
-  min-height: 85vh;
+.icon-links {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  gap: 0.5rem;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.icon-links a {
+  padding: 0.25rem 0.75rem;
+}
+
+.icon-links a[role="button"] {
+  margin-left: auto;
 }
